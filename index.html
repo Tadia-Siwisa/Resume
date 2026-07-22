@@ -1,735 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tadia Siwisa - Resume</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tadia Siwisa — AI Researcher & Systems Analyst</title>
+<style>
+/* ─── RESET & BASE ─────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        :root {
-            --primary: #1a1a2e;
-            --secondary: #16213e;
-            --accent: #0f3460;
-            --highlight: #e94560;
-            --text: #333;
-            --text-light: #666;
-            --bg: #f8f9fa;
-            --white: #ffffff;
-            --border: #e0e0e0;
-        }
+:root {
+  --ink:        #0f172a;
+  --slate:      #1e293b;
+  --graphite:   #334155;
+  --steel:      #475569;
+  --muted:      #64748b;
+  --silver:     #94a3b8;
+  --frost:      #cbd5e1;
+  --snow:       #f1f5f9;
+  --white:      #ffffff;
+  --accent:     #0f766e;
+  --accent-light:#ccfbf1;
+  
+  --font-sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --page-w:     210mm;
+  --page-h:     297mm;
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+html { font-size: 15px; }
 
-        .page {
-            max-width: 210mm;
-            min-height: 297mm;
-            margin: 0 auto;
-            background: var(--white);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+body {
+  font-family: var(--font-sans);
+  background: #e2e8f0;
+  color: var(--graphite);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
 
-        /* Header */
-        .header {
-            background: var(--primary);
-            color: var(--white);
-            padding: 40px 50px;
-            position: relative;
-            overflow: hidden;
-        }
+/* ─── PAGE ─────────────────────────────────────────────── */
+.page {
+  width: var(--page-w);
+  min-height: var(--page-h);
+  background: var(--white);
+  padding: 22mm 20mm 18mm 20mm;
+  box-shadow: 0 4px 24px rgba(15,23,42,0.08), 0 1px 3px rgba(15,23,42,0.06);
+  position: relative;
+}
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 60%;
-            height: 200%;
-            background: var(--secondary);
-            transform: rotate(15deg);
-            opacity: 0.5;
-        }
+/* ─── TOP ACCENT RULE ──────────────────────────────────── */
+.top-rule {
+  position: absolute;
+  top: 8mm;
+  left: 20mm;
+  width: 55mm;
+  height: 2px;
+  background: var(--accent);
+}
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--highlight);
-        }
+/* ─── HEADER ───────────────────────────────────────────── */
+.header { margin-bottom: 1.8rem; }
 
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
+.name {
+  font-size: 2.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
 
-        .name {
-            font-size: 2.4em;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
-        }
+.tagline {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--steel);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.35rem;
+}
 
-        .title {
-            font-size: 1.1em;
-            color: #a0aec0;
-            font-weight: 400;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
+.contact {
+  font-size: 0.78rem;
+  color: var(--muted);
+  word-spacing: 0.15em;
+}
 
-        .contact-bar {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.9em;
-        }
+.contact a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact a:hover { color: var(--accent); }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #cbd5e0;
-        }
+.header-rule {
+  margin-top: 0.7rem;
+  border: none;
+  border-top: 0.5px solid var(--frost);
+}
 
-        .contact-item svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--highlight);
-        }
+/* ─── SECTIONS ─────────────────────────────────────────── */
+.section { margin-bottom: 1.6rem; }
 
-        .contact-item a {
-            color: #cbd5e0;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
+.section-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.15rem;
+  position: relative;
+  display: inline-block;
+}
 
-        .contact-item a:hover {
-            color: var(--highlight);
-        }
+.section-title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--accent);
+  margin-top: 2px;
+}
 
-        /* Main Content */
-        .main {
-            padding: 35px 50px 40px;
-        }
+/* ─── SUMMARY ──────────────────────────────────────────── */
+.summary-text {
+  font-size: 0.88rem;
+  color: var(--graphite);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
 
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
-        }
+/* ─── PROJECTS ─────────────────────────────────────────── */
+.project {
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 0.55rem;
+}
 
-        .left-col {
-            border-right: 1px solid var(--border);
-            padding-right: 35px;
-        }
+.project-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 1.1rem;
+  flex-shrink: 0;
+  line-height: 1.4;
+  padding-top: 0.05rem;
+}
 
-        .right-col {
-            padding-left: 0;
-        }
+.project-body { flex: 1; }
 
-        /* Section Styling */
-        .section {
-            margin-bottom: 28px;
-        }
+.project-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 0.15rem;
+}
 
-        .section-title {
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--highlight);
-            font-weight: 700;
-            margin-bottom: 14px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--highlight);
-            display: inline-block;
-        }
+.project-title a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.project-title a:hover { color: var(--accent); }
 
-        /* Summary */
-        .summary-text {
-            font-size: 0.95em;
-            line-height: 1.7;
-            color: var(--text);
-            text-align: justify;
-        }
+.project-desc {
+  font-size: 0.8rem;
+  color: var(--graphite);
+  line-height: 1.5;
+  margin-bottom: 0.15rem;
+}
 
-        /* Experience */
-        .experience-item {
-            margin-bottom: 22px;
-            position: relative;
-            padding-left: 16px;
-            border-left: 2px solid var(--border);
-        }
+.project-tech {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.4;
+}
 
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 6px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--highlight);
-        }
+/* ─── EXPERIENCE ───────────────────────────────────────── */
+.job {
+  margin-top: 0.7rem;
+}
 
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 
-        .exp-title {
-            font-weight: 700;
-            font-size: 1em;
-            color: var(--primary);
-        }
+.job-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
 
-        .exp-date {
-            font-size: 0.8em;
-            color: var(--text-light);
-            font-weight: 500;
-        }
+.job-period {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
 
-        .exp-company {
-            font-size: 0.9em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
+.job-bullets {
+  list-style: none;
+  padding-left: 0.35rem;
+  margin-top: 0.25rem;
+}
 
-        .exp-list {
-            list-style: none;
-            padding: 0;
-        }
+.job-bullets li {
+  font-size: 0.8rem;
+  color: var(--graphite);
+  line-height: 1.5;
+  position: relative;
+  padding-left: 0.7rem;
+  margin-bottom: 0.1rem;
+}
 
-        .exp-list li {
-            font-size: 0.88em;
-            color: var(--text);
-            margin-bottom: 5px;
-            padding-left: 14px;
-            position: relative;
-            line-height: 1.5;
-        }
+.job-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
 
-        .exp-list li::before {
-            content: '›';
-            position: absolute;
-            left: 0;
-            color: var(--highlight);
-            font-weight: 700;
-        }
+/* ─── SKILLS ───────────────────────────────────────────── */
+.skill-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  align-items: flex-start;
+}
 
-        /* Projects */
-        .project-item {
-            margin-bottom: 18px;
-            padding: 14px;
-            background: #f8f9fa;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent);
-        }
+.skill-cat {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 7.5rem;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
 
-        .project-title {
-            font-weight: 700;
-            font-size: 0.95em;
-            color: var(--primary);
-            margin-bottom: 6px;
-        }
+.skill-list {
+  font-size: 0.78rem;
+  color: var(--graphite);
+  line-height: 1.5;
+}
 
-        .project-title a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.2s;
-            border-bottom: 1px solid transparent;
-        }
+/* ─── EDUCATION ────────────────────────────────────────── */
+.edu-item {
+  margin-top: 0.5rem;
+}
 
-        .project-title a:hover {
-            color: var(--highlight);
-            border-bottom-color: var(--highlight);
-        }
+.edu-degree {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
 
-        .project-desc {
-            font-size: 0.85em;
-            color: var(--text);
-            line-height: 1.5;
-            margin-bottom: 6px;
-        }
+.edu-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding-left: 0.35rem;
+  margin-top: 0.05rem;
+}
 
-        .project-tech {
-            font-size: 0.8em;
-            color: var(--text-light);
-            font-style: italic;
-        }
+/* ─── CERTIFICATIONS ───────────────────────────────────── */
+.cert-list {
+  list-style: none;
+  padding-left: 0.35rem;
+  margin-top: 0.25rem;
+}
 
-        /* Skills */
-        .skill-category {
-            margin-bottom: 14px;
-        }
+.cert-list li {
+  font-size: 0.8rem;
+  color: var(--graphite);
+  line-height: 1.5;
+  position: relative;
+  padding-left: 0.7rem;
+  margin-bottom: 0.1rem;
+}
 
-        .skill-cat-title {
-            font-size: 0.8em;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
+.cert-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
 
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
+/* ─── FOOTER ───────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--silver);
+  margin-top: 2rem;
+  padding-top: 0.5rem;
+  border-top: 0.5px solid var(--snow);
+}
 
-        .skill-tag {
-            background: var(--primary);
-            color: var(--white);
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.78em;
-            font-weight: 500;
-        }
+/* ─── PRINT ────────────────────────────────────────────── */
+@media print {
+  body { background: white; padding: 0; }
+  .page {
+    box-shadow: none;
+    width: 100%;
+    padding: 18mm 16mm 14mm 16mm;
+  }
+  .top-rule { left: 16mm; }
+  a { text-decoration: none; color: inherit; }
+}
 
-        .skill-tag.light {
-            background: #e2e8f0;
-            color: var(--primary);
-        }
-
-        /* Education */
-        .edu-item {
-            margin-bottom: 14px;
-        }
-
-        .edu-degree {
-            font-weight: 700;
-            font-size: 0.95em;
-            color: var(--primary);
-        }
-
-        .edu-detail {
-            font-size: 0.85em;
-            color: var(--text-light);
-        }
-
-        .awards {
-            margin-top: 10px;
-            font-size: 0.82em;
-            color: var(--text);
-        }
-
-        .awards-title {
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        .award-item {
-            padding-left: 14px;
-            position: relative;
-            margin-bottom: 3px;
-        }
-
-        .award-item::before {
-            content: '★';
-            position: absolute;
-            left: 0;
-            color: var(--highlight);
-            font-size: 0.8em;
-        }
-
-        /* Certifications */
-        .cert-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .cert-list li {
-            font-size: 0.85em;
-            color: var(--text);
-            margin-bottom: 5px;
-            padding-left: 16px;
-            position: relative;
-        }
-
-        .cert-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--highlight);
-            font-weight: 700;
-        }
-
-        /* Portfolio */
-        .portfolio-text {
-            font-size: 0.88em;
-            color: var(--text);
-            margin-bottom: 8px;
-        }
-
-        .portfolio-links {
-            display: flex;
-            gap: 15px;
-            font-size: 0.85em;
-        }
-
-        .portfolio-links a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
-        }
-
-        .portfolio-links a:hover {
-            border-bottom-color: var(--accent);
-        }
-
-        /* Print Styles */
-        @media print {
-            body {
-                background: white;
-            }
-            .page {
-                box-shadow: none;
-                margin: 0;
-                max-width: 100%;
-            }
-            .header {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            .skill-tag {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .two-column {
-                grid-template-columns: 1fr;
-            }
-            .left-col {
-                border-right: none;
-                padding-right: 0;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 20px;
-            }
-            .header {
-                padding: 25px 25px;
-            }
-            .main {
-                padding: 25px 25px;
-            }
-            .name {
-                font-size: 1.8em;
-            }
-        }
-    </style>
+@page {
+  size: A4;
+  margin: 0;
+}
+</style>
 </head>
 <body>
-    <div class="page">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <h1 class="name">TADIA SIWISA</h1>
-                <p class="title">Data Analyst | Researcher | Operations & System Analyst</p>
-                <div class="contact-bar">
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                        <span>tadiasiwisa977@gmail.com</span>
-                        
-                    </div>
-                
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.13c0-.77.62-1.4 1.4-1.4a1.4 1.4 0 0 1 1.4 1.4v4.13h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                        <a href="https://www.linkedin.com/in/tadia-siwisa-694543408">LinkedIn</a>
-                    </div>
-                    <div class="contact-item">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                        <a href="https://github.com/Tadia-Siwisa">GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </header>
 
-        <div class="main">
-            <!-- Professional Summary -->
-            <div class="section">
-                <h2 class="section-title">Professional Summary</h2>
-                <p class="summary-text">
-                    Economics and Statistics graduate with experience in quantitative research, data analysis, reporting, dashboard development, and business operations. Worked across socioeconomic research, business intelligence, and educational technology sectors. Skilled in transforming complex datasets into actionable insights through statistical analysis, data visualisation, and intuitive dashboard design.
-                </p>
-            </div>
+<div class="page">
+  <div class="top-rule"></div>
 
-            <div class="two-column">
-                <!-- Left Column -->
-                <div class="left-col">
-                    <!-- Professional Experience -->
-                    <div class="section">
-                        <h2 class="section-title">Professional Experience</h2>
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="name">Tadia Siwisa</h1>
+    <p class="tagline">AI Researcher · Systems Analyst · Human–AI Collaboration</p>
+    <p class="contact">
+      <a href="mailto:tadiasiwisa977@gmail.com">tadiasiwisa977@gmail.com</a>
+      &nbsp;&nbsp;&nbsp; 063 664 5508
+      &nbsp;&nbsp;&nbsp; <a href="https://www.linkedin.com/in/tadia-siwisa-4645">LinkedIn</a>
+      &nbsp;&nbsp;&nbsp; <a href="https://github.com/Tadia-Siwisa">GitHub</a>
+    </p>
+    <hr class="header-rule">
+  </header>
 
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <span class="exp-title">ESL Teacher</span>
-                                <span class="exp-date">2025 – 2026</span>
-                            </div>
-                            <div class="exp-company">Yingfu English Training Centre, China</div>
-                            <ul class="exp-list">
-                                <li>Designed and delivered structured English lessons for young learners</li>
-                                <li>Analysed, audited and gave structured feedback on a new AI chatbot for teachers </li>
-                                <li>Developed lesson materials and contributed to curriculum refinement</li>
-                                <li>Used AI and digital tools to create learning resources and improve planning efficiency</li>
-                                <li>Developed a teaching writing methodology : Hybrid Approach to Writing using Product and Process approach</li>
-                                <li>Received the Best Rising Star Award (FY25)</li>
-                            </ul>
-                        </div>
+  <!-- PROFESSIONAL SUMMARY -->
+  <section class="section">
+    <h2 class="section-title">Professional Summary</h2>
+    <p class="summary-text">
+      AI Researcher and Systems Analyst focused on human–AI collaboration, AI agent workflows, and applied systems thinking. Designs and prototypes research-driven tools—assistants, dashboards, and workflow systems—that improve reasoning, verification, and decision-making. Strengths include rapid experimentation, cross-model evaluation, and translating research insights into usable systems.
+    </p>
+  </section>
 
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <span class="exp-title">Data Analyst</span>
-                                <span class="exp-date">2024 – 2025</span>
-                            </div>
-                            <div class="exp-company">Verité Research</div>
-                            <ul class="exp-list">
-                                <li>Provided quantitative analysis support to socioeconomic and economic research teams</li>
-                                <li>Analysed survey and demographic datasets for pre-election research</li>
-                                <li>Investigated voter behaviour patterns and demographic correlations</li>
-                                <li>Examined media reporting trends for media ethics research</li>
-                                <li>Analysed workforce and labour data to identify sector and demographic vulnerabilities</li>
-                                <li>Produced research reports and data summaries supporting policy and strategic recommendations</li>
-                            </ul>
-                        </div>
+  <!-- SELECTED RESEARCH & PROJECTS -->
+  <section class="section">
+    <h2 class="section-title">Selected Research & Projects</h2>
 
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <span class="exp-title">Data Analyst Intern</span>
-                                <span class="exp-date">2023 – 2024</span>
-                            </div>
-                            <div class="exp-company">Vula Oil (Fuel Distribution Startup)</div>
-                            <ul class="exp-list">
-                                <li>Analysed fuel transaction data from a proprietary mobile application</li>
-                                <li>Reconciled transaction records and identified reporting discrepancies</li>
-                                <li>Acted as liaison between management and software developers</li>
-                                <li>Assisted with dashboard design and reporting requirements</li>
-                                <li>Produced monthly sales and operational performance reports</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <span class="exp-title">University Tutor – Statistics & Mathematics</span>
-                                <span class="exp-date">2022 – 2023</span>
-                            </div>
-                            <div class="exp-company">Nelson Mandela University</div>
-                            <ul class="exp-list">
-                                <li>Provided academic support to undergraduate Statistics and Mathematics students</li>
-                                <li>Simplified complex quantitative concepts into practical explanations</li>
-                                <li>Assisted students with statistical reasoning, problem solving, and exam preparation</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <span class="exp-title">Au Pair</span>
-                                <span class="exp-date">2021 – 2022</span>
-                            </div>
-                            <div class="exp-company">Private Family, France</div>
-                            <ul class="exp-list">
-                                <li>Managed educational support and daily routines for children</li>
-                                <li>Assisted with Mathematics, English reading, and homework support</li>
-                                <li>Developed cross-cultural communication skills in a French family environment</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <span class="exp-title">Online ESL Teacher</span>
-                                <span class="exp-date">2020 – 2021</span>
-                            </div>
-                            <div class="exp-company">iTutorGroup</div>
-                            <ul class="exp-list">
-                                <li>Delivered personalised English lessons to children and adults</li>
-                                <li>Adapted lesson pacing according to learner needs and progress</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <span class="exp-title">ESL Teacher</span>
-                                <span class="exp-date">2019 – 2020</span>
-                            </div>
-                            <div class="exp-company">Disney English, China</div>
-                            <ul class="exp-list">
-                                <li>Delivered structured English lessons using the Disney curriculum</li>
-                                <li>Worked within a dual-teacher classroom environment</li>
-                                <li>Conducted demonstration lessons and parent consultations</li>
-                            </ul>
-                        </div>
-
-                        <div class="experience-item">
-                            <div class="exp-header">
-                                <span class="exp-title">Founder & Private Mathematics Tutor</span>
-                                <span class="exp-date">2016 – 2018</span>
-                            </div>
-                            <div class="exp-company">Independent Practice</div>
-                            <ul class="exp-list">
-                                <li>Built and operated a private Mathematics tutoring service</li>
-                                <li>Delivered individual and small-group instruction</li>
-                                <li>Improved student performance through structured remediation and practice</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column -->
-                <div class="right-col">
-                    <!-- Featured Projects -->
-                    <div class="section">
-                        <h2 class="section-title">Featured Projects</h2>
-
-                        <div class="project-item">
-                            <div class="project-title"><a href="https://tadia-siwisa.github.io/SA-Eco-Dash/" target="_blank">South African Economic Intelligence Dashboard</a></div>
-                            <div class="project-desc">Interactive dashboard integrating economic, demographic, labour market, crime, and financial market indicators.</div>
-                            <div class="project-tech">Python, HTML, GitHub, Data Visualisation</div>
-                        </div>
-                        
-                        <div class="project-item">
-                            <div class="project-title"><a href="https://tadia-siwisa.github.io/energy-flow-dash/" target="_blank"> South African Grid Flexibility Explora</a></div>
-                            <div class="project-desc">Designed and developed an interactive energy systems map exploring the relationships between generation, transmission, storage, and demand within South Africa's electricity network. Produced supporting research and commentary using systems-thinking methodologies to investigate grid flexibility, infrastructure constraints, and energy transition challenges.</div>
-                            <div class="project-tech">AI Agent, HTML, GitHub, System mapping, Network Analysis, Exploratory Research</div>
-                            </div>
-            
-
-                        <div class="project-item">
-                            <div class="project-title"><a href="https://github.com/Tadia-Siwisa/Data_Analysis_Projects/" target="_blank"> Data Analytics Projects</a></div>
-                            <div class="project-desc">Built a series of Data analysis and Data Science projects including exploratory analysis, PCA, clustering, feature importance analysis, and predictive modelling.</div>
-                            <div class="project-tech">Python, Machine Learning, Statistical Analysis</div>
-                        </div>
-                    
-
-                        <div class="project-item">
-                            <div class="project-title"><a href="https://tadia-siwisa.github.io/BTC-SP500-EDA/" target="_blank"> Bitcoin vs S&P 500: Exploratory Data Analysis </a> </div>
-                            <div class="project-desc">Conducted a three-part exploratory analysis examining the relationship between Bitcoin and the S&P 500 during 2023. Investigated how visualization choices, correlation analysis, and technical indicators influence market interpretation across different timeframes.
-                                Tools: Python, Pandas, NumPy,Matplotlib, Jupyter Notebook, Yahoo Finance 
-                            </div>
-                            <div class="project-tech">Python, Statistical Analysis, Data Visualisation</div>
-                        </div>
-                    
-
-                        <div class="project-item">
-                            <div class="project-title"><a href="https://tadia-siwisa.github.io/organogram-builder/" target="_blank">Organogram Builder</a></div>
-                            <div class="project-desc">Developed an interactive organisational structure builder to address delays in receiving organisational data, enabling stakeholders to construct and maintain organisational charts independently.</div>
-                            <div class="project-tech">HTML, CSS, GitHub Codespaces, Workflow Design</div>
-                        </div>
-                    </div>
-
-                    <!-- Technical Skills -->
-                    <div class="section">
-                        <h2 class="section-title">Technical Skills</h2>
-
-                        <div class="skill-category">
-                            <div class="skill-cat-title">Data & Analytics</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Advanced SQL</span>
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">R</span>
-                                <span class="skill-tag">Statistical Analysis</span>
-                                <span class="skill-tag">Survey Analysis</span>
-                                <span class="skill-tag">Data Visualisation</span>
-                                <span class="skill-tag">Dashboard Development</span>
-                            </div>
-                        </div>
-                        
-                        <div class="skill-category">
-                            <div class="skill-cat-title">Development & Automation</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag">GitHub</span>
-                                <span class="skill-tag light">GitHub Codespaces</span>
-                                <span class="skill-tag light">HTML</span>
-                                <span class="skill-tag light">CSS</span>
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <div class="skill-cat-title">AI & Modern Analytics Workflows</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag light">ChatGPT</span>
-                                <span class="skill-tag light">Claude</span>
-                                <span class="skill-tag light">Gemini</span>
-                                <span class="skill-tag light">DeepSeek</span>
-                                <span class="skill-tag light">Kimi</span>
-                                <span class="skill-tag light">Prompt Engineering</span>
-                                <span class="skill-tag light">AI-Assisted Development</span>
-                            </div>
-                        </div>
-
-                        <div class="skill-category">
-                            <div class="skill-cat-title">Design & Communication</div>
-                            <div class="skill-tags">
-                                <span class="skill-tag light">Canva</span>
-                                <span class="skill-tag light">Presentation Design</span>
-                                <span class="skill-tag light">Visual Communication</span>
-                                <span class="skill-tag light">Portfolio Design</span>
-                                <span class="skill-tag light">AI Image Generation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Education -->
-                    <div class="section">
-                        <h2 class="section-title">Education</h2>
-                        <div class="edu-item">
-                            <div class="edu-degree">Bachelor of Commerce (Economics & Statistics)</div>
-                            <div class="edu-detail">Nelson Mandela University | 2016 – 2019</div>
-                        </div>
-                    </div>
-
-                    <!-- Certifications -->
-                    <div class="section">
-                        <h2 class="section-title">Certifications</h2>
-                        <ul class="cert-list">
-                            <li>Data Science Certificate (Coursera) – 2023</li>
-                            <li>120-Hour TEFL Certificate (i-to-i) – 2019</li>
-                            <li>Teaching Writing Certificate – 2026</li>
-                            <li>Cambridge TKT Young Learners (Band 3) – 2025</li>
-                            <li>Cambridge TKT Module 1 – 2026</li>
-                        </ul>
-                    </div>
-
-                    <!-- Awards -->
-                    <div class="section">
-                        <h2 class="section-title">Awards</h2>
-                        <ul class="exp-list">
-                            <li>Academic Scholarship Award</li>
-                            <li>2nd Place – Allan Gray Writing Competition</li>
-                            <li>Best Rising Star Award – Yingfu (FY25)</li>
-                        </ul>
-                    </div>
-
-                    <!-- Portfolio -->
-                    <div class="section">
-                        <h2 class="section-title">Portfolio</h2>
-                        <div class="portfolio-links">
-                            <a href="https://github.com/Tadia-Siwisa" target="_blank">github.com/Tadia-Siwisa</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="project">
+      <span class="project-num">1.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://github.com/Tadia-Siwisa/Independent-Research/blob/main/Tadia_Siwisa_Research_Proposal%20(Final).pdf">Human-AI Collaboration: Designing Systems that Strengthen Human Judgment</a></div>
+        <div class="project-desc">Developed a research proposal and framework for designing human–AI workflows that strengthen judgment through trust calibration, verification, and decision-aware interaction design.</div>
+        <div class="project-tech">Key technologies: AI agents, research design, systems thinking, ChatGPT, Claude, Gemini, DeepSeek</div>
+      </div>
     </div>
+
+    <div class="project">
+      <span class="project-num">2.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://github.com/Tadia-Siwisa/Independent-Research/blob/main/Drift%20in%20Sustained%20Human%E2%80%93LLM%20Interaction_FV_20260528_183728_0000.pdf">Drift in Sustained Human–LLM Interaction</a></div>
+        <div class="project-desc">Authored an exploratory working paper defining and analyzing "drift" in long-form human–LLM conversations, with implications for sustained reasoning and collaboration quality.</div>
+        <div class="project-tech">Key technologies: qualitative research, human–AI interaction, comparative LLM analysis</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-num">3.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://github.com/Tadia-Siwisa/AILIRA/tree/main">AILIRA – AI Literature Review Associate</a></div>
+        <div class="project-desc">Built an AI-assisted literature review workflow to accelerate discovery, analysis, note-taking, and synthesis while reducing researcher cognitive load.</div>
+        <div class="project-tech">Key technologies: AI agents, LLMs, prompt engineering, research automation</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-num">4.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://github.com/Tadia-Siwisa/AETHER/blob/main/README.md">Aether – Multi-Participant Voice AI</a></div>
+        <div class="project-desc">Designed an architecture for multi-user voice conversations that manages identity, state, and turn-taking independently of the language model to support natural group interaction.</div>
+        <div class="project-tech">Key technologies: React, TypeScript, Express.js, Google Gemini API, speech recognition</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-num">5.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://tadia-siwisa.github.io/organogram-builder/">Organogram Builder</a></div>
+        <div class="project-desc">Developed a self-serve web app for creating and exporting organizational charts, reducing data bottlenecks and improving client autonomy for org-structure workflows.</div>
+        <div class="project-tech">Key technologies: HTML, CSS, JavaScript, GitHub Codespaces</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-num">6.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://tadia-siwisa.github.io/energy-flow-dash/">South African Grid Flexibility Explorer</a></div>
+        <div class="project-desc">Built an interactive systems map of South Africa's electricity ecosystem to surface constraints and dependencies relevant to grid flexibility and energy transition analysis.</div>
+        <div class="project-tech">Key technologies: systems mapping, data visualization, AI-assisted research, HTML</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-num">7.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://tadia-siwisa.github.io/SA-Eco-Dash/">South African Economic Intelligence Dashboard</a></div>
+        <div class="project-desc">Developed an interactive dashboard integrating socioeconomic indicators to support consolidated, evidence-based analysis and research workflows.</div>
+        <div class="project-tech">Key technologies: Python, data visualization, HTML, GitHub</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-num">8.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://github.com/Tadia-Siwisa/Interior-Portfolio/blob/main/Client%20Portfolio%20sample%20.pdf">Interior Design Portfolio</a></div>
+        <div class="project-desc">Produced a client-ready digital portfolio using AI-assisted image refinement and consistent layout/branding to turn raw photography into a cohesive presentation.</div>
+        <div class="project-tech">Key technologies: generative AI, Canva, prompt engineering, visual design</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-num">9.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://tadia-siwisa.github.io/BTC-SP500-EDA/">Bitcoin vs S&P 500 Exploratory Data Analysis</a></div>
+        <div class="project-desc">Conducted a multi-part EDA comparing Bitcoin and the S&P 500 using statistical and technical indicators to test interpretation across analytical lenses.</div>
+        <div class="project-tech">Key technologies: Python, Pandas, NumPy, Matplotlib, Jupyter</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <span class="project-num">10.</span>
+      <div class="project-body">
+        <div class="project-title"><a href="https://github.com/Tadia-Siwisa/Independent-Research/blob/main/Exploring%20Huma-AI%20Collaboration%20and%20System%20Design.pdf">Exploring AI, Organisations & Human-AI Collaboration</a></div>
+        <div class="project-desc">Published a compact collection of articles and project summaries on AI-assisted workflows, systems design, and prototype development for human–AI collaboration.</div>
+        <div class="project-tech">Key technologies: technical writing, workflow design, systems thinking, AI-assisted research</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <section class="section">
+    <h2 class="section-title">Professional Experience</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Independent AI Researcher & AI Systems Analyst | Independent Research</span>
+        <span class="job-period">2026–Present</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Led independent research on human–AI collaboration, agentic workflows, and verification-oriented interaction design.</li>
+        <li>Designed and prototyped AI-assisted tools (research assistants, dashboards, workflow systems) to improve research throughput and decision quality.</li>
+        <li>Developed frameworks for trust calibration, human judgment preservation, and long-form reasoning evaluation.</li>
+        <li>Published working papers and technical write-ups documenting findings and prototypes.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">ESL Teacher | Yingfu English Training Centre (China)</span>
+        <span class="job-period">2025–2026</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Designed and delivered structured lessons for young learners using measurable learning objectives.</li>
+        <li>Analyzed and audited an AI chatbot for teachers; delivered prioritized feedback to improve usability and instructional alignment.</li>
+        <li>Developed teaching materials and refined curriculum components to standardize lesson quality.</li>
+        <li>Earned Best Rising Star Award (FY25).</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Data Analyst | Verité Research</span>
+        <span class="job-period">2024–2025</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Analyzed survey and demographic datasets for national pre-election research and stakeholder briefings.</li>
+        <li>Conducted quantitative studies on voter behavior, labor markets, and socioeconomic indicators to support research outputs.</li>
+        <li>Produced research reports and data-driven narratives for policy and strategic decision-making.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Data Analyst Intern | Vula Oil (Fuel Distribution Startup)</span>
+        <span class="job-period">2023–2024</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Analyzed transaction data from a proprietary platform to track performance and operational trends.</li>
+        <li>Reconciled records and diagnosed reporting discrepancies to improve data reliability.</li>
+        <li>Developed monthly operational and sales reporting for leadership decision-making.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">University Tutor – Statistics & Mathematics | Nelson Mandela University</span>
+        <span class="job-period">2022–2023</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Taught undergraduate Statistics and Mathematics, improving student problem-solving and exam readiness through structured practice.</li>
+        <li>Explained complex quantitative concepts with practical examples and step-by-step reasoning.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Independent Research | Independent Research</span>
+        <span class="job-period">2021–2022</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Conducted independent studies in machine learning, statistical modeling, and predictive analytics with reproducible analyses.</li>
+        <li>Developed a working paper on stock price prediction using LSTM models and hybrid feature sets (technical + fundamental indicators).</li>
+        <li>Completed a satellite reliability study using Kaplan–Meier estimation and Cox Proportional Hazards modeling.</li>
+        <li>Strengthened literature review, experimental design, evaluation, and technical writing foundations for later AI systems work.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Online ESL Teacher | iTutorGroup</span>
+        <span class="job-period">2020–2021</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Delivered personalized lessons to children and adults; adapted instruction to learner goals and pacing.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">ESL Teacher | Disney English (China)</span>
+        <span class="job-period">2019–2020</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Delivered curriculum-aligned lessons in a dual-teacher classroom model; supported parent consultations and demo classes.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="job-title">Founder & Private Mathematics Tutor | Independent Practice</span>
+        <span class="job-period">2016–2018</span>
+      </div>
+      <ul class="job-bullets">
+        <li>Built and ran a tutoring service; designed structured learning plans that improved student performance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SKILLS -->
+  <section class="section">
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skill-row">
+      <span class="skill-cat">AI & Research</span>
+      <span class="skill-list">Human–AI collaboration, AI agent workflows, prompt engineering, systems thinking, research design, qualitative research, technical writing</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-cat">Data & Analytics</span>
+      <span class="skill-list">Python, R, SQL, statistical analysis, EDA, data visualization, machine learning, time series analysis, model evaluation</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-cat">Development & Tools</span>
+      <span class="skill-list">HTML/CSS, JavaScript, GitHub, GitHub Pages, VS Code, Tableau, Canva</span>
+    </div>
+    <div class="skill-row">
+      <span class="skill-cat">Platforms</span>
+      <span class="skill-list">ChatGPT, Claude, Gemini, DeepSeek, Google AI Studio</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section">
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-item">
+      <div class="edu-degree">Bachelor of Commerce (Economics & Statistics) | Nelson Mandela University | 2023</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">Data Science Professional Certificate | Coursera | 2024</div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section">
+    <h2 class="section-title">Certifications</h2>
+
+    <ul class="cert-list">
+      <li>120-Hour TEFL Certificate</li>
+      <li>Teaching Writing Certificate</li>
+      <li>Cambridge TKT (Band 3)</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    Tadia Siwisa · AI Researcher & Systems Analyst
+  </footer>
+</div>
+
 </body>
 </html>
